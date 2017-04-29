@@ -85,6 +85,3 @@ class MessageUtil:
         msg.Body = body
  
         return msg
-
-
-출처: http://ghj1001020.tistory.com/194 [혁준 블로그]
