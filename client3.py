@@ -9,7 +9,7 @@ from message_header import Header
 from message_body import BodyData, BodyRequest, BodyResponse, BodyResult
 from message_util import MessageUtil
  
- 
+resultM = ""
  
 #파일하나 전송하고 종료
 def sendImage():
@@ -108,8 +108,10 @@ def sendImage():
  
  
         print()
- 
- 
+        
+        golobal resultM
+        resultM = str(sock.recv(1024), "utf-8")
+        
         #결과메시지 읽기
         resultMsg = MessageUtil.receive(sock)
  
@@ -123,4 +125,4 @@ def sendImage():
     sock.close()
     
     print("클라이언트를 종료합니다.")
-    return "hahahahaha"
+    return resultM
