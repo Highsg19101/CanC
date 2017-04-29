@@ -72,7 +72,7 @@ class FileReceiveHandler(socketserver.BaseRequestHandler):
         receiveFileSize = 0
  
         #파일쓰기
-        with open(uploadDir+"\\"+fileName, "wb") as file:
+        with open(uploadDir+"/"+fileName, "wb") as file:
             receiveMSGID = -1
             previousSEQ = 0
  
