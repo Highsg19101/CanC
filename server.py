@@ -4,6 +4,7 @@ import socket
 import socketserver
 import struct
 import message
+import label_image
  
 from message import Message
 from message_header import Header
