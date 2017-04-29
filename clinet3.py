@@ -12,7 +12,7 @@ from message_util import MessageUtil
  
  
 #파일하나 전송하고 종료
-def send():
+def sendImage():
  
     filepath = "/home/pi/ABO2/image.jpg"
  
