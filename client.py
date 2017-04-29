@@ -14,13 +14,13 @@ from message_util import MessageUtil
 #파일하나 전송하고 종료
 if __name__ == "__main__":
  
-    filepath = "D:\\study\\python\\python_ex_1\\fileupload\\testfile.png"
+    filepath = "/home/pi/ABO2/image.jpg"
  
     #서버와 연결된 소켓 객체 생성
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         #서버 연결 요청
-        sock.connect(("127.0.0.1", 8080))
+        sock.connect(("192.168.0.57", 8080))
  
  
  
