@@ -114,9 +114,6 @@ class FileReceiveHandler(socketserver.BaseRequestHandler):
  
         print()
         print("수신된 파일 크기 : {0} bytes".format(receiveFileSize))
-   
-        print("이미지 추론 시작.")
-        resultM = label_image.deduction() 
  
         #수신결과메시지 생성
         resultMsg = Message()
@@ -138,6 +135,8 @@ class FileReceiveHandler(socketserver.BaseRequestHandler):
  
         #수신받은 파일크기와 헤더의 파일크기정보가 같으면 성공 
         if fileSize == receiveFileSize:
+            resultM = label_image.deduction()
+            sock.sendall(resultM.encode())
             MessageUtil.send(sock, resultMsg)   #수신결과메시지 전송
         else:
             resultMsg.Body = BodyResult(None)
