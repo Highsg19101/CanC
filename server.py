@@ -4,28 +4,36 @@ import socket
 import socketserver
 import struct
 import message
-
+ 
 from message import Message
 from message_header import Header
 from message_body import BodyData, BodyRequest, BodyResponse, BodyResult
 from message_util import MessageUtil
-
+ 
+ 
+ 
 uploadDir = ""
-
+ 
+ 
+ 
 #서버핸들러
 class FileReceiveHandler(socketserver.BaseRequestHandler):
-  #클라이언트의 접속 요청 처리
-  def handle(self):
-  print("클라이언트 : {0} 접속".format(self.client_address[0]))
-  
-  #클라이언트와 연결된 소켓 객체 생성
-  sock = self.request
-  #클라이언트로부터 Message(header+body)를 읽는다
-  #요청메시지 읽기
-  requestMsg = MessageUtil.receive(sock)
-  if requestMsg.Header.MSGTYPE != message.REQ_FILE_SEND:  #message.REQ_FILE_SEND : message모듈의 REQ_FILE_SEND변수
-    client.close()
-    return
+ 
+    #클라이언트의 접속 요청 처리
+    def handle(self):
+        print("클라이언트 : {0} 접속".format(self.client_address[0]))
+ 
+        #클라이언트와 연결된 소켓 객체 생성
+        sock = self.request 
+ 
+ 
+ 
+        #클라이언트로부터 Message(header+body)를 읽는다
+        #요청메시지 읽기
+        requestMsg = MessageUtil.receive(sock)
+        if requestMsg.Header.MSGTYPE != message.REQ_FILE_SEND:  #message.REQ_FILE_SEND : message모듈의 REQ_FILE_SEND변수
+            client.close()
+            return
         
         #요청메시지 - 파일전송요청 객체 생성
         bodyRequest = BodyRequest(None)
@@ -161,3 +169,6 @@ if __name__ == "__main__":
         print(err)
  
     print("서버를 종료합니다")
+
+
+출처: http://ghj1001020.tistory.com/195 [혁준 블로그]
