@@ -31,7 +31,7 @@ if __name__ == "__main__":
         #요청메시지 바디 생성 - 파일전송요청 객체 생성
         requestMsg.Body = BodyRequest(None)
         requestMsg.Body.FILESIZE = filesize
-        requestMsg.Body.FILENAME = filepath[filepath.rindex("\\")+1:]
+        requestMsg.Body.FILENAME = filepath[filepath.rindex("/")+1:]
  
         #요청메시지 헤더 생성
         requestMsg.Header = Header(None)
