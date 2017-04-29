@@ -114,7 +114,9 @@ class FileReceiveHandler(socketserver.BaseRequestHandler):
  
         print()
         print("수신된 파일 크기 : {0} bytes".format(receiveFileSize))
- 
+   
+        print("이미지 추론 시작.")
+        resultM = label_image.deduction() 
  
         #수신결과메시지 생성
         resultMsg = Message()
