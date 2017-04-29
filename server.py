@@ -152,7 +152,7 @@ class FileReceiveHandler(socketserver.BaseRequestHandler):
  
 if __name__ == "__main__":
  
-    uploadDir = "D:\\study\\python\\python_ex_1\\ch13"
+    uploadDir = "/home/lee/ABO2/models/slim"
     #디렉토리있는지 체크
     if os.path.isdir(uploadDir)==False:
         os.mkdir(uploadDir) #없으면 디렉토리를 만든다
@@ -160,7 +160,7 @@ if __name__ == "__main__":
  
     server = None
     try:
-        server = socketserver.TCPServer(("127.0.0.1", 8080), FileReceiveHandler)
+        server = socketserver.TCPServer(("192.168.0.57", 8080), FileReceiveHandler)
  
         print("파일 업로드 시작")
         #클라이언트의 접속요청을 수신대기
