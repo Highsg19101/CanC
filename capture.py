@@ -1,4 +1,5 @@
 import client3
+import ttsStart
 
 from picamera import PiCamera
 from time import sleep
@@ -19,3 +20,4 @@ while True :
         camera.stop_preview()
         text = client3.sendImage()
         print(text)
+        ttsStart.ttsGo(text)
