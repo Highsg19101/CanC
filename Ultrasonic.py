@@ -2,7 +2,8 @@ import RPi.GPIO as gpio
 import time
   
 gpio.setmode(gpio.BCM)
-  
+
+buz = 26
 trig = 13
 echo = 19
   
@@ -10,7 +11,10 @@ print("start")
  
 gpio.setup(trig, gpio.OUT)
 gpio.setup(echo, gpio.IN)
- 
+gpio.setup(buz, gpio.OUT)
+
+ck_pwm = gpio.PWM(buz, 1000)
+
 try :
   while True :
     gpio.output(trig, False)
@@ -31,5 +35,10 @@ try :
     distance = round(distance, 2)
  
     print("Distance : ", distance, "cm")
+    
+    if (distance <= 100) :
+      ck_pwm.start(30)
+    else :
+      ck_pwm.stop()
 except :
   gpio.cleanup()
