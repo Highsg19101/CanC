@@ -1,4 +1,4 @@
-import client3
+import client
 import ttsStart
 
 from picamera import PiCamera
@@ -18,6 +18,6 @@ while True :
         button.wait_for_press()
         camera.capture('image.jpg')
         camera.stop_preview()
-        text = client3.sendImage()
+        text = client.sendImage()
         print(text)
         ttsStart.ttsGo(text)
